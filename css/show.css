@@ -1,0 +1,8 @@
+*{
+    margin: 0px auto;
+    padding: 0px;
+}
+.layui-container{
+    width: 80%;
+    text-align: center;
+}

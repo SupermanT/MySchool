@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="js/layui/css/layui.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script rel="script" src="js/layui/layui.js"></script>
+    <script rel="script" src="js/jquery-1.11.2.min.js"></script>
+    <script rel="script" src="js/jquery.cookie.js"></script>
+    <script rel="script" src="js/doT.min.js"></script>
+    <script rel="script" src="js/index.js"></script>
+
+
+
+</head>
+<body>
+<div class="container">
+    <h1>超市管理系统</h1>
+
+    <div class="root"></div>
+</div>
+<script type="text/x-dot-template" id="shop_temp">
+    <!--模板内容-->
+    <table class="layui-table">
+        <tr class="layui-table-header layui-bg-blue">
+            <th>id</th>
+            <th>用户code</th>
+            <th>用户名</th>
+            <th>性别</th>
+            <th>生日</th>
+            <th>操作</th>
+        </tr>
+        {{  for(var i in it){   }}
+            <tr>
+                <td>{{=it[i].id}}</td>
+                <td>{{=it[i].userCode}}</td>
+                <td>{{=it[i].userName}}</td>
+                <td>
+                    {{? it[i].gender==2}}
+                        男
+                    {{??}}
+                        女
+                    {{?}}
+                </td>
+                <td>{{=it[i].birthday}}</td>
+                <td>
+                    <a name="upd">修改</a>&nbsp;
+                    <a name="del">删除</a>
+                </td>
+            </tr>
+        {{  }                   }}
+    </table>
+</script>
+<script type="text/x-dot-template" id="pagination_temp">
+    <!--分页条-->
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-normal">
+            <i class="layui-icon">&#xe65a</i>
+        </button>
+        {{ for(var i=1;i<=it;i++){ }}
+        <button class="page layui-btn layui-btn-warm">{{=i}}</button>
+        {{ } }}
+        <button class="layui-btn layui-btn-danger">
+            <i class="layui-icon">&#xe65b</i>
+        </button>
+    </div>
+</script>
+</body>
+</html>
